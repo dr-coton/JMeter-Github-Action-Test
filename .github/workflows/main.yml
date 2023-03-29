@@ -20,8 +20,8 @@ jobs:
           outputReportsFolder: reports/
           args: "--loglevel INFO"
           
-      - uses: actions/upload-artifact@v1
+      - uses: actions/upload-artifact@v3
         with:
           name: jmeter-test-results
-          path: reports/
+          path: reports/test.txt
 
