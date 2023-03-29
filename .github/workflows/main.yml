@@ -5,23 +5,23 @@ on:
   push:
     branches:
       - main
-
+      
 jobs:
-
-  action_build:
+  jmeter_job:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: Run JMeter Action on a test
-        uses: rbhadti94/apache-jmeter-action@v0.5.0
+    name: JMeter Test Execution
+    steps:      
+      - name: Checkout
+        uses: actions/checkout@v2
+        
+      - name: Run JMeter Tests
+        uses: ./
         with:
-          testFilePath: tests/sample_test.jmx
-          outputReportsFolder: reports/
-          args: "--loglevel INFO"
+          test-plan-path: ./tests/sample_test.jmx
+          args: ""
           
-      - uses: actions/upload-artifact@v3
+      - name: Upload Results
+        uses: actions/upload-artifact@v2
         with:
-          name: jmeter-test-results
-          path: reports/
-
+          name: jmeter-results
+          path: result.jtl
