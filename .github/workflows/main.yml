@@ -35,7 +35,3 @@ jobs:
           name: jmeter-test-results
           path: reports/
 
-      - uses: actions/upload-artifact@v1
-        with:
-          name: jmeter-test-results-other
-          path: other_reports/
