@@ -4,10 +4,7 @@ name: Test JMeter Action
 on:
   push:
     branches:
-      - master
-      - feature/*
-  pull_request:
-    branches: [master]
+      - main
 
 jobs:
 
